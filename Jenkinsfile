@@ -22,11 +22,6 @@ pipeline {
             steps {
                 bat 'npm run build --prod' // Production build
             }
-            post {
-                success {
-                    archiveArtifacts artifacts: 'dist/**/*', fingerprint: true
-                }
-            }
         }
         
         stage('Build Docker Image') {
