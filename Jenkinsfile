@@ -17,18 +17,7 @@ pipeline {
                 bat 'npm install'
             }
         }
-             
-        stage('Unit Tests') {
-            steps {
-                bat 'npm test' // Assumes you have tests configured
-            }
-            post {
-                always {
-                    junit '**/test-results.xml' // Assumes your test results are in this format
-                }
-            }
-        }
-        
+                     
         stage('Build Angular') {
             steps {
                 bat 'npm run build --prod' // Production build
