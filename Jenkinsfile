@@ -50,14 +50,11 @@ pipeline {
     }
     
     post {
-        always {
-            cleanWs()
-        }
         success {
-            slackSend(color: 'good', message: "Build Successful: ${env.JOB_NAME} #${env.BUILD_NUMBER}")
+            echo 'Build and deployment successful!'
         }
         failure {
-            slackSend(color: 'danger', message: "Build Failed: ${env.JOB_NAME} #${env.BUILD_NUMBER}")
+            echo 'Build or deployment failed!'
         }
     }
 }
