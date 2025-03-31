@@ -43,12 +43,12 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                     {
-                        dockerImage = docker.build("${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}", "--build-arg NGINX_PORT=80 .")
-                    }
+                    // Build the Docker image
+                    bat "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
                 }
             }
         }
+      
         
         
         stage('Deploy to Docker') {
