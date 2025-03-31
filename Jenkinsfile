@@ -42,7 +42,7 @@ pipeline {
                        bat """
                     docker stop ${CONTAINER_NAME} >nul 2>&1 || echo Container was not running
                     docker rm ${CONTAINER_NAME} >nul 2>&1 || echo Container did not exist
-                    docker run -d --name ${CONTAINER_NAME} --network workshop -p 4200:4200 ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} 
+                    docker run -d --name ${CONTAINER_NAME} --network workshop -p 4200:80 ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} 
                     """
                     }
             }
