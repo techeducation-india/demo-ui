@@ -14,13 +14,14 @@ pipeline {
         
         stage('Install Dependencies') {
             steps {
-                bat 'npm install'
+                bat "npm install"
+                bat "npm install -g @angular/cli"
             }
         }
                      
         stage('Build Angular') {
             steps {
-                bat 'npm run build '
+                bat "npm ng build "
             }
         }
         
@@ -41,7 +42,7 @@ pipeline {
                        bat """
                     docker stop ${CONTAINER_NAME} >nul 2>&1 || echo Container was not running
                     docker rm ${CONTAINER_NAME} >nul 2>&1 || echo Container did not exist
-                    docker run -d --name ${CONTAINER_NAME} --network workshop -p 80:80 ${IMAGE_NAME}:${IMAGE_TAG} 
+                    docker run -d --name ${CONTAINER_NAME} --network workshop -p 4200:4200 ${IMAGE_NAME}:${IMAGE_TAG} 
                     """
                     }
             }
