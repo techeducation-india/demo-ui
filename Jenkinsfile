@@ -14,13 +14,13 @@ pipeline {
         
         stage('Install Dependencies') {
             steps {
-                sh 'npm install'
+                bat 'npm install'
             }
         }
              
         stage('Unit Tests') {
             steps {
-                sh 'npm test' // Assumes you have tests configured
+                bat 'npm test' // Assumes you have tests configured
             }
             post {
                 always {
@@ -31,7 +31,7 @@ pipeline {
         
         stage('Build Angular') {
             steps {
-                sh 'npm run build -- --prod' // Production build
+                bat 'npm run build --prod' // Production build
             }
             post {
                 success {
