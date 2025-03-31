@@ -4,7 +4,7 @@ pipeline {
     environment {
         // Configure these variables according to your project
         DOCKER_REGISTRY = 'docker.io' // Change if using a different registry
-        DOCKER_IMAGE_NAME = 'sample-ui-app' // Replace with your Docker Hub username
+        DOCKER_IMAGE_NAME = 'sample-angluar-app' // Replace with your Docker Hub username
         CONTAINER_NAME = 'sample-ui-app'
         DOCKER_IMAGE_TAG = "latest"
         DOCKER_CREDENTIALS_ID = 'docker-hub-credentials' // Jenkins credentials ID for Docker Hub
@@ -29,7 +29,7 @@ pipeline {
             steps {
                 script {
                     // Build the Docker image
-                    bat "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
+                    bat "docker build -t ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} ."
                 }
             }
         }
