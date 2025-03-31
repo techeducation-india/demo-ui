@@ -20,7 +20,7 @@ pipeline {
                      
         stage('Build Angular') {
             steps {
-                bat 'npm run build --prod' // Production build
+                bat 'npm run build '
             }
         }
         
